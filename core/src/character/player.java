@@ -31,6 +31,10 @@ public class player extends Sprite {
 	private float stateTimer;
 	private boolean keKanan;
 	
+	// Added by CC
+	public int speed = 3;
+	//
+	
 	public player(World world,GameScreen screen)
 	{
 		super(screen.getAtlas().findRegion("player_char"));
@@ -167,7 +171,9 @@ public class player extends Sprite {
 	{
 		BodyDef bdef = new BodyDef();
 		bdef.position.set(32 / TugasAI.PPM,32 / TugasAI.PPM);
-		bdef.type = BodyDef.BodyType.KinematicBody;
+		// Changed by CC
+		bdef.type = BodyDef.BodyType.DynamicBody;
+		//
 		b2body = world.createBody(bdef);
 		
 		FixtureDef fdef = new FixtureDef();
